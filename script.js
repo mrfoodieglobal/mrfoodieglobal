@@ -8,26 +8,26 @@ const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 // Product photos currently all use your uploaded burger image.
 // Later, replace each product's image value with its own image path.
 const products = [
-  {id:1,name:"Classic Crispy Burger",category:"Burgers",price:650,desc:"Crunchy chicken, fresh lettuce and creamy sauce.",image:"assets/burger-placeholder.jpg"},
-  {id:2,name:"Spicy Zinger Burger",category:"Burgers",price:750,desc:"A spicy, crunchy chicken burger with a kick.",image:"assets/burger-placeholder.jpg"},
-  {id:3,name:"Double Crunch Burger",category:"Burgers",price:990,desc:"Double the chicken, double the satisfaction.",image:"assets/burger-placeholder.jpg"},
-  {id:4,name:"Cheese Melt Burger",category:"Burgers",price:820,desc:"Crispy chicken topped with rich melted cheese.",image:"assets/burger-placeholder.jpg"},
-  {id:5,name:"Classic Fried Chicken",category:"Chicken",price:390,desc:"Golden, crunchy and full of flavour.",image:"assets/burger-placeholder.jpg"},
-  {id:6,name:"Hot & Spicy Chicken",category:"Chicken",price:420,desc:"A fiery favourite for spice lovers.",image:"assets/burger-placeholder.jpg"},
-  {id:7,name:"Chicken Strips (3 pcs)",category:"Chicken",price:520,desc:"Tender chicken strips with a crispy coating.",image:"assets/burger-placeholder.jpg"},
-  {id:8,name:"Chicken Wings (6 pcs)",category:"Chicken",price:590,desc:"Juicy wings with a crunchy outside.",image:"assets/burger-placeholder.jpg"},
-  {id:9,name:"Family Chicken Bucket",category:"Chicken",price:1890,desc:"A sharing bucket for the whole crew.",image:"assets/burger-placeholder.jpg"},
-  {id:10,name:"Loaded Chicken Wrap",category:"Wraps",price:690,desc:"Crispy chicken, salad and signature sauce.",image:"assets/burger-placeholder.jpg"},
-  {id:11,name:"Spicy Mayo Wrap",category:"Wraps",price:620,desc:"A soft wrap with a spicy creamy bite.",image:"assets/burger-placeholder.jpg"},
-  {id:12,name:"Classic French Fries",category:"Sides",price:250,desc:"Golden fries with a little sprinkle of joy.",image:"assets/burger-placeholder.jpg"},
-  {id:13,name:"Masala Fries",category:"Sides",price:320,desc:"Crispy fries tossed in bold masala.",image:"assets/burger-placeholder.jpg"},
-  {id:14,name:"Cheese Loaded Fries",category:"Sides",price:450,desc:"Fries covered in a cheesy sauce.",image:"assets/burger-placeholder.jpg"},
-  {id:15,name:"Coleslaw",category:"Sides",price:220,desc:"Cool, creamy and refreshing.",image:"assets/burger-placeholder.jpg"},
-  {id:16,name:"Chocolate Brownie",category:"Desserts",price:300,desc:"A rich chocolate treat to finish your meal.",image:"assets/burger-placeholder.jpg"},
-  {id:17,name:"Vanilla Sundae",category:"Desserts",price:280,desc:"A cool and creamy sweet treat.",image:"assets/burger-placeholder.jpg"},
-  {id:18,name:"Cold Drink",category:"Drinks",price:180,desc:"A chilled drink to go with your food.",image:"assets/burger-placeholder.jpg"},
-  {id:19,name:"Mineral Water",category:"Drinks",price:100,desc:"Simple, fresh hydration.",image:"assets/burger-placeholder.jpg"},
-  {id:20,name:"Mr Foodie Mega Deal",category:"Chicken",price:1490,desc:"Burger, chicken, fries and a cold drink.",image:"assets/burger-placeholder.jpg"}
+  {id:1,name:"Classic Crispy Burger",category:"Burgers",price:650,desc:"Crunchy chicken, fresh lettuce and creamy sauce.",image:"burger-placeholder.png"},
+  {id:2,name:"Spicy Zinger Burger",category:"Burgers",price:750,desc:"A spicy, crunchy chicken burger with a kick.",image:"burger-placeholder.png"},
+  {id:3,name:"Double Crunch Burger",category:"Burgers",price:990,desc:"Double the chicken, double the satisfaction.",image:"burger-placeholder.png"},
+  {id:4,name:"Cheese Melt Burger",category:"Burgers",price:820,desc:"Crispy chicken topped with rich melted cheese.",image:"burger-placeholder.png"},
+  {id:5,name:"Classic Fried Chicken",category:"Chicken",price:390,desc:"Golden, crunchy and full of flavour.",image:"burger-placeholder.png"},
+  {id:6,name:"Hot & Spicy Chicken",category:"Chicken",price:420,desc:"A fiery favourite for spice lovers.",image:"burger-placeholder.png"},
+  {id:7,name:"Chicken Strips (3 pcs)",category:"Chicken",price:520,desc:"Tender chicken strips with a crispy coating.",image:"burger-placeholder.png"},
+  {id:8,name:"Chicken Wings (6 pcs)",category:"Chicken",price:590,desc:"Juicy wings with a crunchy outside.",image:"burger-placeholder.png"},
+  {id:9,name:"Family Chicken Bucket",category:"Chicken",price:1890,desc:"A sharing bucket for the whole crew.",image:"burger-placeholder.png"},
+  {id:10,name:"Loaded Chicken Wrap",category:"Wraps",price:690,desc:"Crispy chicken, salad and signature sauce.",image:"burger-placeholder.png"},
+  {id:11,name:"Spicy Mayo Wrap",category:"Wraps",price:620,desc:"A soft wrap with a spicy creamy bite.",image:"burger-placeholder.png"},
+  {id:12,name:"Classic French Fries",category:"Sides",price:250,desc:"Golden fries with a little sprinkle of joy.",image:"burger-placeholder.png"},
+  {id:13,name:"Masala Fries",category:"Sides",price:320,desc:"Crispy fries tossed in bold masala.",image:"burger-placeholder.png"},
+  {id:14,name:"Cheese Loaded Fries",category:"Sides",price:450,desc:"Fries covered in a cheesy sauce.",image:"burger-placeholder.png"},
+  {id:15,name:"Coleslaw",category:"Sides",price:220,desc:"Cool, creamy and refreshing.",image:"burger-placeholder.png"},
+  {id:16,name:"Chocolate Brownie",category:"Desserts",price:300,desc:"A rich chocolate treat to finish your meal.",image:"burger-placeholder.png"},
+  {id:17,name:"Vanilla Sundae",category:"Desserts",price:280,desc:"A cool and creamy sweet treat.",image:"burger-placeholder.png"},
+  {id:18,name:"Cold Drink",category:"Drinks",price:180,desc:"A chilled drink to go with your food.",image:"burger-placeholder.png"},
+  {id:19,name:"Mineral Water",category:"Drinks",price:100,desc:"Simple, fresh hydration.",image:"burger-placeholder.png"},
+  {id:20,name:"Mr Foodie Mega Deal",category:"Chicken",price:1490,desc:"Burger, chicken, fries and a cold drink.",image:"burger-placeholder.png"}
 ];
 
 let cart = [];
@@ -39,10 +39,10 @@ function renderProducts() {
   const shown = activeCategory === "All" ? products : products.filter(p => p.category === activeCategory);
   $("product-grid").innerHTML = shown.map(p => `
     <article class="product-card">
-      <div class="product-image"><img src="${p.image}" alt="${burger-placeholder.png}" loading="lazy"></div>
+      <div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
       <div class="product-info">
         <span class="product-category">${p.category}</span>
-        <h3>${burger-placeholder.png}</h3><p>${p.desc}</p>
+        <h3>${p.name}</h3><p>${p.desc}</p>
         <div class="product-bottom"><span class="price">${money(p.price)}</span>
           <button class="add-btn" data-add="${p.id}">+ ADD</button></div>
       </div>
@@ -67,7 +67,7 @@ function renderCart() {
   $("checkout-total").textContent = money(total());
   $("cart-items").innerHTML = cart.length ? cart.map(p => `
     <div class="cart-line"><img src="${p.image}" alt="">
-      <div><h4>${burger-placeholder.png}</h4><small>${money(p.price)} each</small>
+      <div><h4>${p.name}</h4><small>${money(p.price)} each</small>
         <div class="qty-controls"><button data-qty="${p.id}" data-delta="-1">−</button><b>${p.qty}</b><button data-qty="${p.id}" data-delta="1">+</button></div>
       </div><strong>${money(p.price*p.qty)}</strong>
     </div>`).join("") : '<p class="empty-cart">Your cart is looking hungry. Add something tasty!</p>';
@@ -99,7 +99,7 @@ $("checkout-form").addEventListener("submit", async e=>{
   }
   const btn=$("place-order");btn.disabled=true;btn.textContent="SENDING ORDER...";
   const form=new FormData(e.currentTarget);
-  const orderItems=cart.map(p=>`${burger-placeholder.png} x ${p.qty} — ${money(p.price*p.qty)}`).join("\n");
+  const orderItems=cart.map(p=>`${p.name} x ${p.qty} — ${money(p.price*p.qty)}`).join("\n");
   const templateParams={
     customer_name:form.get("customer_name"),
     customer_phone:form.get("customer_phone"),
