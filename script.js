@@ -39,10 +39,10 @@ function renderProducts() {
   const shown = activeCategory === "All" ? products : products.filter(p => p.category === activeCategory);
   $("product-grid").innerHTML = shown.map(p => `
     <article class="product-card">
-      <div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+      <div class="product-image"><img src="${p.image}" alt="${burger-placeholder.png}" loading="lazy"></div>
       <div class="product-info">
         <span class="product-category">${p.category}</span>
-        <h3>${p.name}</h3><p>${p.desc}</p>
+        <h3>${burger-placeholder.png}</h3><p>${p.desc}</p>
         <div class="product-bottom"><span class="price">${money(p.price)}</span>
           <button class="add-btn" data-add="${p.id}">+ ADD</button></div>
       </div>
@@ -67,7 +67,7 @@ function renderCart() {
   $("checkout-total").textContent = money(total());
   $("cart-items").innerHTML = cart.length ? cart.map(p => `
     <div class="cart-line"><img src="${p.image}" alt="">
-      <div><h4>${p.name}</h4><small>${money(p.price)} each</small>
+      <div><h4>${burger-placeholder.png}</h4><small>${money(p.price)} each</small>
         <div class="qty-controls"><button data-qty="${p.id}" data-delta="-1">−</button><b>${p.qty}</b><button data-qty="${p.id}" data-delta="1">+</button></div>
       </div><strong>${money(p.price*p.qty)}</strong>
     </div>`).join("") : '<p class="empty-cart">Your cart is looking hungry. Add something tasty!</p>';
@@ -99,7 +99,7 @@ $("checkout-form").addEventListener("submit", async e=>{
   }
   const btn=$("place-order");btn.disabled=true;btn.textContent="SENDING ORDER...";
   const form=new FormData(e.currentTarget);
-  const orderItems=cart.map(p=>`${p.name} x ${p.qty} — ${money(p.price*p.qty)}`).join("\n");
+  const orderItems=cart.map(p=>`${burger-placeholder.png} x ${p.qty} — ${money(p.price*p.qty)}`).join("\n");
   const templateParams={
     customer_name:form.get("customer_name"),
     customer_phone:form.get("customer_phone"),
